@@ -16,7 +16,7 @@ class Activity(models.Model):
     ASSIGNEE_TYPE_CHOICES = (
         ("1", "Instructor"),
         ("2", "Troinor"),
-        ("3", "Umpire")
+        ("3", "Umpire"),
         ("4", "Baby Sitter")
     )
     title = models.CharField(max_length=50)
@@ -27,7 +27,7 @@ class Activity(models.Model):
     star_day = models.DateField(blank=True, null=True)
     end_day = models.DateField(blank=True, null=True)
     is_recurring = models.BooleanField(default=False)
-    is_all_day = models.BooleanField(blank=True, null=True)
+    is_all_day = models.BooleanField(default=False)
     repeats = models.CharField(
         max_length=2,
         choices=REPEATS_CHOICES,
@@ -41,8 +41,8 @@ class Activity(models.Model):
     is_reserve = models.BooleanField(default=False)
     is_pay = models.BooleanField(default=False)
     is_call_bussiness = models.BooleanField(default=False)
-    amount = models.BooleanField(blank=True, null=True)
-    quantily_number = models.BooleanField(blank=True, null=True)
+    amount = models.FloatField(blank=True, null=True)
+    quantily_number = models.FloatField(blank=True, null=True)
     botton_label = models.CharField(max_length=2,
         choices=BOTTON_LABEL_CHOICES,
         blank=True,
